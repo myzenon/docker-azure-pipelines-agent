@@ -1,18 +1,21 @@
 # Azure Pipelines Agent Docker Image
 
+This repository is forked from
+[myzenon/azure-pipelines-agent](https://github.com/lambda3/docker-azure-pipelines-agent).
+
 This repository contains `Dockerfile` definitions for
-[lambda3/azure-pipelines-agent](https://github.com/lambda3/docker-azure-pipelines-agent).
+[myzenon/azure-pipelines-agent](https://github.com/myzenon/docker-azure-pipelines-agent).
 
 This project allows the Azure Pipelines Agent to run on Docker or Kubernetes
 (with Helm).
 
-[![Downloads from Docker Hub](https://img.shields.io/docker/pulls/lambda3/azure-pipelines-agent.svg)](https://registry.hub.docker.com/u/lambda3/azure-pipelines-agent)
-[![Stars on Docker Hub](https://img.shields.io/docker/stars/lambda3/azure-pipelines-agent.svg)](https://registry.hub.docker.com/u/lambda3/azure-pipelines-agent) [![](https://images.microbadger.com/badges/image/lambda3/azure-pipelines-agent.svg)](https://microbadger.com/images/lambda3/azure-pipelines-agent "Get your own image badge on microbadger.com")
+[![Downloads from Docker Hub](https://img.shields.io/docker/pulls/myzenon/azure-pipelines-agent.svg)](https://registry.hub.docker.com/u/myzenon/azure-pipelines-agent)
+[![Stars on Docker Hub](https://img.shields.io/docker/stars/myzenon/azure-pipelines-agent.svg)](https://registry.hub.docker.com/u/myzenon/azure-pipelines-agent) [![](https://images.microbadger.com/badges/image/myzenon/azure-pipelines-agent.svg)](https://microbadger.com/images/myzenon/azure-pipelines-agent "Get your own image badge on microbadger.com")
 
 ## Supported tags
 
-* [`latest` (*agent/Dockerfile*)](https://github.com/lambda3/docker-azure-pipelines-agent/blob/master/agent/Dockerfile)
-* [`docker` (*agent-docker/Dockerfile*)](https://github.com/lambda3/docker-azure-pipelines-agent/blob/master/agent-docker/Dockerfile)
+* [`latest` (*agent/Dockerfile*)](https://github.com/myzenon/docker-azure-pipelines-agent/blob/master/agent/Dockerfile)
+* [`docker` (*agent-docker/Dockerfile*)](https://github.com/myzenon/docker-azure-pipelines-agent/blob/master/agent-docker/Dockerfile)
 
 ## Configuration
 
@@ -56,7 +59,7 @@ Avoid the `docker` tags, prefer to host the Docker engine on a separate host.
 
 ### Kubernetes with Helm Chart
 
-See [the chart readme](https://github.com/Lambda3/helmcharts/blob/master/charts/azure-pipelines-agent/README.md).
+See [the chart readme](https://github.com/myzenon/helmcharts/blob/master/charts/azure-pipelines-agent/README.md).
 
 ### Docker
 
@@ -70,7 +73,7 @@ export AGENT_PAT=<yourpat>
 Then run:
 
 ````bash
-docker run --name azure-pipelines-agent -ti -e VS_TENANT=$VS_TENANT -e AGENT_PAT=$AGENT_PAT -d -v /agent/_works:/agent/_works lambda3/azure-pipelines-agent:latest
+docker run --name azure-pipelines-agent -ti -e VS_TENANT=$VS_TENANT -e AGENT_PAT=$AGENT_PAT -d -v /agent/_works:/agent/_works myzenon/azure-pipelines-agent:latest
 ````
 
 On Windows (using Docker for Windows), using PowerShell, set the variables:
@@ -83,7 +86,7 @@ $env:AGENT_PAT=<yourpat>
 Then run:
 
 ````powershell
-docker run --name azure-pipelines-agent -ti -e VS_TENANT=$env:VS_TENANT -e AGENT_PAT=$env:AGENT_PAT -d lambda3/azure-pipelines-agent:latest
+docker run --name azure-pipelines-agent -ti -e VS_TENANT=$env:VS_TENANT -e AGENT_PAT=$env:AGENT_PAT -d myzenon/azure-pipelines-agent:latest
 ````
 
 **Important**: If you build using Docker containers, be careful with volume mounts, as they
@@ -113,7 +116,7 @@ export DOCKER_SERVER=<dockerserver>
 Then run:
 
 ````bash
-docker run --name azure-pipelines-agent -ti -e VS_TENANT=$VS_TENANT -e AGENT_PAT=$AGENT_PAT -e DOCKER_USERNAME=$DOCKER_USERNAME -e DOCKER_PASSWORD=$DOCKER_PASSWORD -e DOCKER_SERVER=$DOCKER_SERVER -d --volume=/var/run/docker.sock:/var/run/docker.sock -v /agent/_works:/agent/_works lambda3/azure-pipelines-agent:docker
+docker run --name azure-pipelines-agent -ti -e VS_TENANT=$VS_TENANT -e AGENT_PAT=$AGENT_PAT -e DOCKER_USERNAME=$DOCKER_USERNAME -e DOCKER_PASSWORD=$DOCKER_PASSWORD -e DOCKER_SERVER=$DOCKER_SERVER -d --volume=/var/run/docker.sock:/var/run/docker.sock -v /agent/_works:/agent/_works myzenon/azure-pipelines-agent:docker
 ````
 
 On Windows (using Docker for Windows), using PowerShell, set the variables:
@@ -129,7 +132,7 @@ $env:DOCKER_SERVER=<dockerserver>
 Then run:
 
 ````powershell
-docker run --name azure-pipelines-agent -ti -e VS_TENANT=$env:VS_TENANT -e AGENT_PAT=$env:AGENT_PAT -e DOCKER_USERNAME=$env:DOCKER_USERNAME -e DOCKER_PASSWORD=$env:DOCKER_PASSWORD -e DOCKER_SERVER=$env:DOCKER_SERVER -d --volume=/var/run/docker.sock:/var/run/docker.sock lambda3/azure-pipelines-agent:docker
+docker run --name azure-pipelines-agent -ti -e VS_TENANT=$env:VS_TENANT -e AGENT_PAT=$env:AGENT_PAT -e DOCKER_USERNAME=$env:DOCKER_USERNAME -e DOCKER_PASSWORD=$env:DOCKER_PASSWORD -e DOCKER_SERVER=$env:DOCKER_SERVER -d --volume=/var/run/docker.sock:/var/run/docker.sock myzenon/azure-pipelines-agent:docker
 ````
 
 ## Software installed
@@ -173,17 +176,17 @@ Plus:
 * docker-compose
 
 See the
-[Dockerfile](https://github.com/lambda3/docker-azure-pipelines-agent/blob/master/agent/Dockerfile)
+[Dockerfile](https://github.com/myzenon/docker-azure-pipelines-agent/blob/master/agent/Dockerfile)
 for more information.
 
 ## Maintainers
 
-* [Giovanni Bassi](http://blog.lambda3.com.br/L3/giovannibassi/), aka Giggio, [Lambda3](http://www.lambda3.com.br), [@giovannibassi](https://twitter.com/giovannibassi)
+* [Giovanni Bassi](http://blog.myzenon.com.br/L3/giovannibassi/), aka Giggio, [myzenon](http://www.myzenon.com.br), [@giovannibassi](https://twitter.com/giovannibassi)
 
 ## License
 
 This software is open source, licensed under the Apache License, Version 2.0.
-See [LICENSE.txt](https://github.com/lambda3/azure-pipelines-agent/blob/master/LICENSE.txt) for details.
+See [LICENSE.txt](https://github.com/myzenon/azure-pipelines-agent/blob/master/LICENSE.txt) for details.
 Check out the terms of the license before you contribute, fork, copy or do anything
 with the code. If you decide to contribute you agree to grant copyright of all your contribution to this project, and agree to
 mention clearly if do not agree to these terms. Your work will be licensed with the project at Apache V2, along the rest of the code.

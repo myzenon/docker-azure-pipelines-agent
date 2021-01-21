@@ -1,4 +1,4 @@
-FROM lambda3/azure-pipelines-agent
+FROM myzenon/azure-pipelines-agent
 
 USER root
 COPY preConfigure.sh /agent/
