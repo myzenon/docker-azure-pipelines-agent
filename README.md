@@ -1,7 +1,7 @@
 # Azure Pipelines Agent Docker Image
 
 This repository is forked from
-[myzenon/azure-pipelines-agent](https://github.com/lambda3/docker-azure-pipelines-agent).
+[lambda3/azure-pipelines-agent](https://github.com/lambda3/docker-azure-pipelines-agent).
 
 This repository contains `Dockerfile` definitions for
 [myzenon/azure-pipelines-agent](https://github.com/myzenon/docker-azure-pipelines-agent).
